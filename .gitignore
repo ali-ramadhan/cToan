@@ -1,0 +1,7 @@
+# Not yet ready...
+CREDITS
+
+# Ignoring Images and Font files, which are used by the tests as they might
+# be non-free stuff or NSFW etc.
+*.bmp
+*.ttf
