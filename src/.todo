@@ -1,6 +1,33 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
+    <title>
+        cToan Programming related TODO
+    </title>
+    <note priority="veryhigh" time="1282462672">
+        Make sure everything works with boost::scoped_ptr!
+    </note>
+    <note priority="veryhigh" time="1282490094">
+        Highlight the major problems that occured with the titlescreen test.
+    </note>
+    <note priority="high" time="1282456521">
+        Should I do some enum switching and abstraction on EventHandler for the events?
+    </note>
+    <note priority="high" time="1282456622">
+        Is using private members + get functions retarded? Think on this one.
+    </note>
+    <note priority="high" time="1282457859">
+        Design classes with dynamically allocated objects in mind? Example: Color arg in FontSurface constructor.
+    </note>
+    <note priority="high" time="1282462653">
+        Should Surface::Blit() be taking a reference to a Display?
+    </note>
     <note priority="medium" time="1282440250">
         Switch from doing assignment in constructor function to using assignment lists in all classes.
+    </note>
+    <note priority="medium" time="1282449268">
+        Add SDL_image support to the Surface class.
+        <comment>
+            Maybe later, near the production stage?
+        </comment>
     </note>
 </todo>

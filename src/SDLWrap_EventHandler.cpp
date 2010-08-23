@@ -20,6 +20,10 @@ void
 EventHandler::HandleEvent()
 {
     switch (this->Event->type) {
+        case SDL_KEYDOWN:
+            OnKeyDown(Event->key.keysym.sym);
+            break;
+
         case SDL_QUIT:
             OnQuit();
             break;

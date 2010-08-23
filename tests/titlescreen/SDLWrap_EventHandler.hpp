@@ -1,6 +1,7 @@
 #ifndef _SDLWRAP_EVENTHANDLER_H_
 #define _SDLWRAP_EVENTHANDLER_H_
 
+#include <iostream>
 #include "SDL/SDL.h"
 
 namespace SDLWrap {
@@ -36,8 +37,8 @@ class EventHandler
         virtual void OnQuit() {};
         virtual void OnKeyDown(SDLKey sym) {};
 
-    protected:
-        SDL_Event *Event;
+    private:
+        SDL_Event Event;
 };
 
 };
