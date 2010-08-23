@@ -11,12 +11,7 @@ catch(SurfaceCreationError)
 {
    ErrorHandler::OutputError(ErrorHandler::FATAL_CONSTRUCTOR_ERROR, "Display::Display(int, int, int, Uint32) constructor threw a SurfaceCreationError!\n");
 }
-/*
-Display::~Display()
-{
-    SDL_FreeSurface(this->me);
-}
-*/
+
 bool
 Display::Flip()
 {

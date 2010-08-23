@@ -1,3 +1,10 @@
+/* SDLWrap_Surface.hpp
+ *
+ * Changelog:
+ * 23/08/2010: - Removed the private FilePath var. It'll only clutter around since I don't even use it yet.
+ *             - Added a default constructor to please derived classes that call it.
+ *             - BMPFilePath -> FilePath, might be more than just BMP's later anyways.
+ */
 #ifndef _SDLWRAP_SURFACE_H_
 #define _SDLWRAP_SURFACE_H_
 
@@ -24,7 +31,10 @@ class Surface
          */
         class SurfaceCreationError {};
 
-        Surface() { this->me = NULL; } // TODO: In here or in .cpp or initializer list???
+        /* Creating a default constructor just in case since FontSurface will call it so might as well do some bare
+         * minimum stuff. Some = the only xD
+         */
+        Surface() : me(NULL) {}
 
         /* This constructor constructs a Surface object and uses SDL_LoadBMP to make the Surface hold a bitmap image.
          * If the bitmap file fails to load for whatever reason, be it a non existant file or not a BMP file or
@@ -41,7 +51,7 @@ class Surface
          *       graphics cards these days deal with 32-bit (alpha channel support), using SDL_DisplayFormatAlpha()
          *       would be faster. Maybe I should switch to using that?
          */
-        Surface(const std::string BMPFilePath);
+        Surface(const std::string FilePath);
 
         /* Destructs a Surface object and frees it.
          * That's really all it does... frees the surface.
@@ -70,7 +80,6 @@ class Surface
 
     private:
         bool RealBlit(const Surface &Destination, SDL_Rect *SourceRect, SDL_Rect *DestRect); // Used internally.
-        std::string FilePath; // Maybe remove as it'll be stored somewhere else and you'll end up with TONS of them when creating bullets.
 };
 
 };

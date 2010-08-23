@@ -1,3 +1,11 @@
+/* SDLWrap_FontSurface.hpp
+ *
+ * Changelog:
+ * 23/08/2010: - Stopped using a typedef for shared_ptr to Font, I'll leave header fully open.
+ *             - Removed the useless empty destructor.
+ *             - Changed constructor to initializer only, the constructor just assigned values anyways =/
+ */
+
 #ifndef _SDLWRAP_FONTSURFACE_H_
 #define _SDLWRAP_FONTSURFACE_H_
 
@@ -12,7 +20,6 @@
 
 namespace SDLWrap {
 
-typedef boost::shared_ptr<Font> Font_SPtr;
 
 /* The FontSurface class represents a Surface with some rendered text on it using a TTF font, and so therefore it makes
  * use of the Surface and Font classes. The reason for this class is that creating a surface with some text on it is a
@@ -31,12 +38,8 @@ class FontSurface : public Surface
          *
          * It also takes a boost shared_ptr to a Font object, which means it has to already exist.
          */
-        FontSurface(std::string Text, Font_SPtr Font, Color ColorOfText);
-
-        /* Is there even a use for this lol? The Surface will automatically destruct and free itself and the shared_ptr
-         * is taking care of the Font, so really, what is there to do xD
-         */
-        ~FontSurface();
+        FontSurface(std::string Text, boost::shared_ptr<Font> TextFont, Color ColorOfText) :
+            SurfaceText(Text), meFont(TextFont), TextColor(ColorOfText);
 
         /* Renders a surface with text on it. The SurfaceText becomes the text, rendered in the font pointed to by
          * meFont and you can specify a color to render it in.
@@ -55,7 +58,7 @@ class FontSurface : public Surface
         void RenderTextSolid();
 
     private:
-        Font_SPtr meFont;
+        boost::shared_ptr<Font> meFont;
         std::string SurfaceText;
         Color TextColor;
 };

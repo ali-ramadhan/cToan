@@ -3,6 +3,18 @@
     <title>
         cToan Programming related TODO
     </title>
+    <note priority="high" time="1282552940" done="1282560896">
+        Cut back on the SDLEngine class, its a bit bloated with stuff you dont use.
+        <comment>
+            Much better now :)
+        </comment>
+    </note>
+    <note priority="high" time="1282556586" done="1282556588">
+        Cut down on the SDLEngine bloat.
+        <comment>
+            Bare minimum now, I'll add to it later if I need to.
+        </comment>
+    </note>
     <note priority="veryhigh" time="1282462672">
         Make sure everything works with boost::scoped_ptr!
     </note>
@@ -21,7 +33,7 @@
     <note priority="high" time="1282462653">
         Should Surface::Blit() be taking a reference to a Display?
     </note>
-    <note priority="medium" time="1282440250">
+    <note priority="medium" time="1282440250" done="1282560921">
         Switch from doing assignment in constructor function to using assignment lists in all classes.
     </note>
     <note priority="medium" time="1282449268">

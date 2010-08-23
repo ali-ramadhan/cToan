@@ -16,7 +16,7 @@ class EventHandler
     public:
         /* Empty constructor and destructor... */
         EventHandler();
-        ~EventHandler();
+        ~EventHandler(); // Should I declare virtual to show that I can inheirt?
 
         /* This function is responsible for handling all calls to the On*() functions. Since they're all virtual for
          * now, it's not like it's gonna be doing much, but once the singleton overrides the pure virtual functions

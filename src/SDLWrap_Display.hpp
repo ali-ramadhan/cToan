@@ -38,9 +38,6 @@ class Display : public Surface {
          */
         Display(int Width, int Height, int BPP, Uint32 Flags);
 
-        /* Just frees the surface as usual. */
-        // ~Display(); // Might not need it as the Surface class has the exact same one...
-        
         /* If the hardware supports double buffering or if the Display was constructed with the HWSURFACE flag then
          * this function sets up a flip and returns. The hardware will wait for vertical retrace, and swaps video
          * buffers before the next video surface blit or lock will return. If SWSURFACE is set on the Display, then it

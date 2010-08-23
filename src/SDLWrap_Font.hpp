@@ -1,3 +1,10 @@
+/* SDLWrap_Font.hpp
+ *
+ * Changelog:
+ * 23/08/2010: - Removed the FilePath private var, just unused overhead for now.
+ *             - Renamed TTFFilePath -> FilePath, might load more than TTF, or can it even do that?
+ */
+
 #ifndef _SDLWRAP_FONT_H_
 #define _SDLWRAP_FONT_H_
 
@@ -15,12 +22,12 @@ class Font {
          */
         class TTFError {};
 
-        /* Typical constructor that opens a TTF font file using TTFFilePath and sets it to render at size FontSize.
+        /* Typical constructor that opens a font file using FilePath and sets it to render at size FontSize.
          * Throws a TTFError in case the TTF system could not be loaded (Only happens when the first font is loaded or
          * if you try to load a font when the TTF system is not running, more generally as you can call Shutdown() then
          * load a font. Also keeps a refcount using FontCount.
          */
-        Font(const std::string TTFFilePath, const int FontSize);
+        Font(const std::string FilePath, const int FontSize);
 
         /* Just frees the memory used by the Font and decrements FontCount. */
         ~Font();
@@ -35,7 +42,6 @@ class Font {
 
     private:
         static int  FontCount;
-        std::string FilePath;
 };
 
 };

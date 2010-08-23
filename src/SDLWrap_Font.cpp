@@ -4,17 +4,16 @@ namespace SDLWrap {
 
 int Font::FontCount = 0;
 
-Font::Font(const std::string TTFFilePath, const int FontSize)
+Font::Font(const std::string FilePath, const int FontSize)
 try {
     this->me = NULL;
 
     if (!TTF_WasInit() && TTF_Init() == -1)
         throw TTFError();
 
-    if ( (this->me = TTF_OpenFont(TTFFilePath.c_str(), FontSize)) == NULL )
+    if ( (this->me = TTF_OpenFont(FFilePath.c_str(), FontSize)) == NULL )
         throw TTFError();
 
-    this->FilePath = TTFFilePath;
     FontCount++;
 }
 catch (TTFError)

@@ -2,18 +2,16 @@
 #include <iostream>
 namespace SDLWrap {
 
-Surface::Surface(const std::string BMPFilePath)
+Surface::Surface(const std::string FilePath)
 try {
     SDL_Surface *tmpSurface = NULL;
-    if ( (tmpSurface = SDL_LoadBMP(BMPFilePath.c_str())) == NULL)
+    if ( (tmpSurface = SDL_LoadBMP(FilePath.c_str())) == NULL)
         throw SurfaceCreationError();
 
     if ( (this->me = SDL_DisplayFormat(tmpSurface)) == NULL )
         throw SurfaceCreationError();
     
     SDL_FreeSurface(tmpSurface);
-
-    this->FilePath = BMPFilePath;
 }
 catch (SurfaceCreationError)
 {

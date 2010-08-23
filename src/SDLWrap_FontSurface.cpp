@@ -2,17 +2,6 @@
 
 namespace SDLWrap {
 
-FontSurface::FontSurface(std::string Text, Font_SPtr Font, Color ColorOfText)
-{
-    this->SurfaceText = Text;
-    this->meFont = Font;
-    this->TextColor = ColorOfText;
-}
-
-FontSurface::~FontSurface()
-{
-}
-
 void
 FontSurface::RenderTextSolid()
 {
