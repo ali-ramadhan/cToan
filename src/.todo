@@ -9,6 +9,12 @@
             Well, it was only the Surface class but I'll keep it in mind!
         </comment>
     </note>
+    <note priority="high" time="1282456622" done="1282614300">
+        Is using private members + get functions retarded? Think on this one.
+        <comment>
+            Sticking with private/protected members. Seems I didn't friend or anything :D
+        </comment>
+    </note>
     <note priority="high" time="1282457859" done="1282567993">
         Design classes with dynamically allocated objects in mind? Example: Color arg in FontSurface constructor.
         <comment>
@@ -42,13 +48,10 @@
     <note priority="veryhigh" time="1282490094">
         Highlight the major problems that occured with the titlescreen test.
     </note>
-    <note priority="high" time="1282456521">
+    <note priority="high" time="1282456521" done="1282619882">
         Should I do some enum switching and abstraction on EventHandler for the events?
-    </note>
-    <note priority="high" time="1282456622" done="1282614300">
-        Is using private members + get functions retarded? Think on this one.
         <comment>
-            Sticking with private/protected members. Seems I didn't friend or anything :D
+            Done. Shoved all enums into a header that sits in the SDLWrap namespace.
         </comment>
     </note>
     <note priority="medium" time="1282449268">
@@ -56,5 +59,8 @@
         <comment>
             Maybe later, near the production stage?
         </comment>
+    </note>
+    <note priority="low" time="1282619277">
+        Add stuff from the SDLMod enum (SDL_keysym.h) into my enum header?
     </note>
 </todo>

@@ -1,9 +1,16 @@
+/* SDLWrap_Display.hpp
+ *
+ * Changelog:
+ * 24/08/2010: - Moved the video/surface mode flags enum into the enum header.
+ */
+
 #ifndef _SDLWRAP_DISPLAY_H_
 #define _SDLWRAP_DISPLAY_H_
 
 #include <SDL/SDL.h>
 
 #include "SDLWrap_Surface.hpp"
+#include "SDLWrap_Enums.hpp"
 #include "ErrorHandler.hpp"
 
 namespace SDLWrap {
@@ -14,25 +21,6 @@ namespace SDLWrap {
 
 class Display : public Surface {
     public:
-        /* All flags that can be sent to SetVideoMode, or in this case, the Display constructor, are gathered and
-         * displayed here. To be fair, they can be used in plain Surfaces but that's limited to a few, the first
-         * three of them, or was it four? Anyways, it requires CreateRGBSurface() which I'm unlikely to use, so
-         * why put them there?
-         */
-        enum {
-            SWSURFACE  = SDL_SWSURFACE,
-            HWSURFACE  = SDL_HWSURFACE,
-            ASYNCBLIT  = SDL_ASYNCBLIT,
-            ANYFORMAT  = SDL_ANYFORMAT,
-            HWPALETTE  = SDL_HWPALETTE,
-            DOUBLEBUF  = SDL_DOUBLEBUF,
-            FULLSCREEN = SDL_FULLSCREEN,
-            OPENGL     = SDL_OPENGL,
-            OPENGLBLIT = SDL_OPENGLBLIT,
-            RESIZABLE  = SDL_RESIZABLE,
-            NOFRAME    = SDL_NOFRAME
-        };
-
         /* Really self explanatory constructor, c'mon ^^'
          * All that's worth noting is that it throws a SurfaceCreationError if it can't create the Display surface.
          */

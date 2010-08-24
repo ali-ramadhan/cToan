@@ -3,6 +3,8 @@
 
 #include <SDL/SDL.h>
 
+#include "SDLWrap_Enums.hpp"
+
 namespace SDLWrap {
 
 /* This class takes care of all events, reading them, handling them etc. The plan is to have the game singleton inherit
