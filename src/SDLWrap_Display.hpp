@@ -1,7 +1,7 @@
 #ifndef _SDLWRAP_DISPLAY_H_
 #define _SDLWRAP_DISPLAY_H_
 
-#include "SDL/SDL.h"
+#include <SDL/SDL.h>
 
 #include "SDLWrap_Surface.hpp"
 #include "ErrorHandler.hpp"

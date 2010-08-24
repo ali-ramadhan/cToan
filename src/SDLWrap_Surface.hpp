@@ -1,16 +1,21 @@
 /* SDLWrap_Surface.hpp
  *
  * Changelog:
+ * 24/08/2010: - Changed the Blit() functions so they take const references to Surfaces instead of const pointers to
+ *               Surfaces. I'll be using a lot of scoped and shared pointers and dereferencing them is cleaner than
+ *               calling their get() function to get a pointer.
+ *
  * 23/08/2010: - Removed the private FilePath var. It'll only clutter around since I don't even use it yet.
  *             - Added a default constructor to please derived classes that call it.
  *             - BMPFilePath -> FilePath, might be more than just BMP's later anyways.
+ *             - Changed to using const pointers to Surfaces in Blit().
  */
 #ifndef _SDLWRAP_SURFACE_H_
 #define _SDLWRAP_SURFACE_H_
 
 #include <string>
 
-#include "SDL/SDL.h"
+#include <SDL/SDL.h>
 
 #include "ErrorHandler.hpp"
 
@@ -61,25 +66,25 @@ class Surface
         /* This entire surface gets blitted onto Destination. If this surface is larger than the destinated surace,
          * then clipping will occur, as usual removing the bottom-most and right-most parts of the image.
          *
-         * Destination is the Address of the surface on which this surface is to be blitted on.
-         * The function returns 0 on success, otherwise -1. If any of the two surfaces were in video memory, it returns
-         * -2, but the Blit() function takes care of that by reloading the surface and re-blitting.
-         *
-         *  And... that was the SDL_BlitSurface() function heh. As for Blit() here, it returns a bool to signal success
-         *  or failure. Probably not gonna use it for anything but debug purposes though...
-         *
-         * TODO: Since there will be a lot of repeated code, probably think of letting all Blit()'s call a single Blit()
+         * It returns a bool to signal success or failure. Probably not gonna use it for anything but debug purposes
+         * though...
          */
-        bool Blit(const Surface &Destination);
+        bool Blit(Surface & const Destination);
 
         /* Blits the Surface onto Destination at co-ordinates (X,Y). */
-        bool Blit(const Surface &Destination, int DestXOffset, int DestYOffset);
+        bool Blit(Surface & const Destination, int DestXOffset, int DestYOffset);
 
-    public:
+    protected:
         SDL_Surface *me; // Declared protected so it can be inherited by the Display and FontSurface classes.
 
     private:
-        bool RealBlit(const Surface &Destination, SDL_Rect *SourceRect, SDL_Rect *DestRect); // Used internally.
+        /* All the public blit functions call this function internally to do the actual blitting, so the public ones
+         * just setup all the variables and structures needed to Blit correctly, then pass it to here. It's also to
+         * keep all error checking in one place since calling SDL_BlitSurface() can return -2 if the video memory was
+         * lost, in which case, the surface must be reloaded/reblitted which requires extra work and possible quite a
+         * bit of extra code, so I decided to keep everything here.
+         */
+        bool RealBlit(Surface & const Destination, SDL_Rect *SourceRect, SDL_Rect *DestRect); // Used internally.
 };
 
 };

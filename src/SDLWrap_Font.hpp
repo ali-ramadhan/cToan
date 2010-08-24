@@ -8,8 +8,8 @@
 #ifndef _SDLWRAP_FONT_H_
 #define _SDLWRAP_FONT_H_
 
-#include "SDL/SDL.h"
-#include "SDL/SDL_ttf.h"
+#include <SDL/SDL.h>
+#include <SDL/SDL_ttf.h>
 
 #include "ErrorHandler.hpp"
 

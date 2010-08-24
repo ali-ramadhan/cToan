@@ -11,7 +11,7 @@ try {
     if (!TTF_WasInit() && TTF_Init() == -1)
         throw TTFError();
 
-    if ( (this->me = TTF_OpenFont(FFilePath.c_str(), FontSize)) == NULL )
+    if ( (this->me = TTF_OpenFont(FilePath.c_str(), FontSize)) == NULL )
         throw TTFError();
 
     FontCount++;

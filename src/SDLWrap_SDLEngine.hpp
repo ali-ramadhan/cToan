@@ -95,6 +95,6 @@ class SDLEngine
         bool CoreWasInitialized; // Used to see if calls to Quit() and Init() are valid, cheapest way of doing so.
 };
 
-}; // end namespace SDLWrap
+}
 
 #endif

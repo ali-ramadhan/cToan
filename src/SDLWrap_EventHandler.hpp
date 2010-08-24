@@ -1,7 +1,7 @@
 #ifndef _SDLWRAP_EVENTHANDLER_H_
 #define _SDLWRAP_EVENTHANDLER_H_
 
-#include "SDL/SDL.h"
+#include <SDL/SDL.h>
 
 namespace SDLWrap {
 

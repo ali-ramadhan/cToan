@@ -4,6 +4,8 @@
  * 23/08/2010: - Stopped using a typedef for shared_ptr to Font, I'll leave header fully open.
  *             - Removed the useless empty destructor.
  *             - Changed constructor to initializer only, the constructor just assigned values anyways =/
+ *             - Switched from using Color objects to pointer to Color objects, to easily use dynamically allocated
+ *               objects.
  */
 
 #ifndef _SDLWRAP_FONTSURFACE_H_
@@ -11,8 +13,8 @@
 
 #include <string>
 
-#include "SDL/SDL.h"
-#include "boost/shared_ptr.hpp"
+#include <SDL/SDL.h>
+#include <boost/shared_ptr.hpp>
 
 #include "SDLWrap_Surface.hpp"
 #include "SDLWrap_Font.hpp"
@@ -38,7 +40,7 @@ class FontSurface : public Surface
          *
          * It also takes a boost shared_ptr to a Font object, which means it has to already exist.
          */
-        FontSurface(std::string Text, boost::shared_ptr<Font> TextFont, Color ColorOfText) :
+        FontSurface(std::string Text, boost::shared_ptr<Font> TextFont, Color *ColorOfText) :
             SurfaceText(Text), meFont(TextFont), TextColor(ColorOfText);
 
         /* Renders a surface with text on it. The SurfaceText becomes the text, rendered in the font pointed to by
@@ -60,7 +62,7 @@ class FontSurface : public Surface
     private:
         boost::shared_ptr<Font> meFont;
         std::string SurfaceText;
-        Color TextColor;
+        Color *TextColor;
 };
 
 };

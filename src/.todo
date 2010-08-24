@@ -3,6 +3,21 @@
     <title>
         cToan Programming related TODO
     </title>
+    <note priority="veryhigh" time="1282462672" done="1282614242">
+        Make sure everything works with boost::scoped_ptr!
+        <comment>
+            Well, it was only the Surface class but I'll keep it in mind!
+        </comment>
+    </note>
+    <note priority="high" time="1282457859" done="1282567993">
+        Design classes with dynamically allocated objects in mind? Example: Color arg in FontSurface constructor.
+        <comment>
+            Example was the only one xD
+        </comment>
+    </note>
+    <note priority="high" time="1282462653" done="1282563785">
+        Should Surface::Blit() be taking a reference to a Display?
+    </note>
     <note priority="high" time="1282552940" done="1282560896">
         Cut back on the SDLEngine class, its a bit bloated with stuff you dont use.
         <comment>
@@ -15,8 +30,14 @@
             Bare minimum now, I'll add to it later if I need to.
         </comment>
     </note>
-    <note priority="veryhigh" time="1282462672">
-        Make sure everything works with boost::scoped_ptr!
+    <note priority="high" time="1282607374" done="1282614196">
+        Think of switching to accepting references to objects so that scoped/shared_ptr can work without *_ptr.get().
+        <comment>
+            Was only the Surface class, but done!
+        </comment>
+    </note>
+    <note priority="medium" time="1282440250" done="1282560921">
+        Switch from doing assignment in constructor function to using assignment lists in all classes.
     </note>
     <note priority="veryhigh" time="1282490094">
         Highlight the major problems that occured with the titlescreen test.
@@ -24,17 +45,11 @@
     <note priority="high" time="1282456521">
         Should I do some enum switching and abstraction on EventHandler for the events?
     </note>
-    <note priority="high" time="1282456622">
+    <note priority="high" time="1282456622" done="1282614300">
         Is using private members + get functions retarded? Think on this one.
-    </note>
-    <note priority="high" time="1282457859">
-        Design classes with dynamically allocated objects in mind? Example: Color arg in FontSurface constructor.
-    </note>
-    <note priority="high" time="1282462653">
-        Should Surface::Blit() be taking a reference to a Display?
-    </note>
-    <note priority="medium" time="1282440250" done="1282560921">
-        Switch from doing assignment in constructor function to using assignment lists in all classes.
+        <comment>
+            Sticking with private/protected members. Seems I didn't friend or anything :D
+        </comment>
     </note>
     <note priority="medium" time="1282449268">
         Add SDL_image support to the Surface class.
