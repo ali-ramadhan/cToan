@@ -9,6 +9,12 @@
             Well, it was only the Surface class but I'll keep it in mind!
         </comment>
     </note>
+    <note priority="high" time="1282456521" done="1282619882">
+        Should I do some enum switching and abstraction on EventHandler for the events?
+        <comment>
+            Done. Shoved all enums into a header that sits in the SDLWrap namespace.
+        </comment>
+    </note>
     <note priority="high" time="1282456622" done="1282614300">
         Is using private members + get functions retarded? Think on this one.
         <comment>
@@ -48,10 +54,10 @@
     <note priority="veryhigh" time="1282490094">
         Highlight the major problems that occured with the titlescreen test.
     </note>
-    <note priority="high" time="1282456521" done="1282619882">
-        Should I do some enum switching and abstraction on EventHandler for the events?
+    <note priority="high" time="1282621463" done="1282621802">
+        Internally, the FontSurface class requires SDL_Color structs but you need pointers to Color objects. Find a midway solution.
         <comment>
-            Done. Shoved all enums into a header that sits in the SDLWrap namespace.
+            Very dirty solution but it'll do for now =/
         </comment>
     </note>
     <note priority="medium" time="1282449268">

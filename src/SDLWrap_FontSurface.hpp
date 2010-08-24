@@ -1,6 +1,8 @@
 /* SDLWrap_FontSurface.hpp
  *
  * Changelog:
+ * 24/08/2010: - Added support for rendering text as blended.
+ *
  * 23/08/2010: - Stopped using a typedef for shared_ptr to Font, I'll leave header fully open.
  *             - Removed the useless empty destructor.
  *             - Changed constructor to initializer only, the constructor just assigned values anyways =/
@@ -43,6 +45,12 @@ class FontSurface : public Surface
         FontSurface(std::string Text, boost::shared_ptr<Font> TextFont, Color *ColorOfText) :
             SurfaceText(Text), meFont(TextFont), TextColor(ColorOfText);
 
+        /* DANGEROUS(?) NOTE:
+         * It seems that internally I need SDL_Color structs, but I need pointers to Color objects, so I'm creating
+         * SDL_Colors in the render functions, using them and then letting them go out of scope for now. Seems like
+         * such a dirty trick though :P
+         */
+
         /* Renders a surface with text on it. The SurfaceText becomes the text, rendered in the font pointed to by
          * meFont and you can specify a color to render it in.
          *
@@ -59,10 +67,21 @@ class FontSurface : public Surface
          */
         void RenderTextSolid();
 
+        /* Same as RenderTextSolid except that it renders it as blended, so it's much higher in quality and obviously
+         * looks much better. The same link as above describes the Blended method in detail:
+         *
+         * Create a 32-bit ARGB surface and render the given text at high quality, using alpha blending to dither the
+         * font with the given color. This results in a surface with alpha transparency, so you don't have a solid
+         * colored box around the text. The text is antialiased. This will render slower than Solid, but in about the
+         * same time as Shaded mode. The resulting surface will blit slower than if you had used Solid or Shaded. Use
+         * this when you want high quality, and the text isn't changing too fast.
+         */
+        void RenderTextBlended();
+
     private:
         boost::shared_ptr<Font> meFont;
         std::string SurfaceText;
-        Color *TextColor;
+        Color *ForegroundColor;
 };
 
 };

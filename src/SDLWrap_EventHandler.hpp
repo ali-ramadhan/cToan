@@ -1,3 +1,9 @@
+/* SDLWrap_EventHandler.hpp
+ *
+ * Changelog:
+ * 24/08/2010: - Changed from using pointer to SDL_Event to actual SDL_Events.
+ */
+
 #ifndef _SDLWRAP_EVENTHANDLER_H_
 #define _SDLWRAP_EVENTHANDLER_H_
 
@@ -39,7 +45,7 @@ class EventHandler
         virtual void OnKeyDown(SDLKey sym) {};
 
     protected:
-        SDL_Event *Event;
+        SDL_Event Event;
 };
 
 };

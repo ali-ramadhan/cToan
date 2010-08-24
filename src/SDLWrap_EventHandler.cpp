@@ -13,15 +13,15 @@ EventHandler::~EventHandler()
 bool
 EventHandler::PollEvent()
 {
-    return SDL_PollEvent(this->Event);
+    return SDL_PollEvent( &(this->Event) );
 }
 
 void
 EventHandler::HandleEvent()
 {
-    switch (this->Event->type) {
+    switch (this->Event.type) {
         case SDL_KEYDOWN:
-            OnKeyDown(Event->key.keysym.sym);
+            OnKeyDown(Event.key.keysym.sym);
             break;
 
         case SDL_QUIT:
