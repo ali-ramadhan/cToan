@@ -24,13 +24,13 @@ Surface::~Surface()
 }
 
 bool
-Surface::Blit(Surface * const Destination)
+Surface::Blit(Surface &Destination)
 {
     return ( RealBlit(Destination, NULL, NULL) == 0 );
 }
 
 bool
-Surface::Blit(Surface * const Destination, int DestXOffset, int DestYOffset)
+Surface::Blit(Surface &Destination, int DestXOffset, int DestYOffset)
 {
     SDL_Rect OffsetRect;
     OffsetRect.x = DestXOffset;
@@ -39,9 +39,9 @@ Surface::Blit(Surface * const Destination, int DestXOffset, int DestYOffset)
 }
 
 bool
-Surface::RealBlit(Surface * const Destination, SDL_Rect *SourceRect, SDL_Rect *DestRect)
+Surface::RealBlit(Surface &Destination, SDL_Rect *SourceRect, SDL_Rect *DestRect)
 {
-    while ( SDL_BlitSurface(this->me, SourceRect, Destination->me, DestRect) == -2 ) {
+    while ( SDL_BlitSurface(this->me, SourceRect, Destination.me, DestRect) == -2 ) {
         /* Reload the image and reblit. Too lazy to implement now but the SDL docs have something on it and so does a
          * very good post by rip-off on GameDev.
          * http://sdl.beuc.net/sdl.wiki/SDL_BlitSurface

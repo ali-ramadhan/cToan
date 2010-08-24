@@ -60,7 +60,7 @@
     <note priority="medium" time="1282440250" done="1282560921">
         Switch from doing assignment in constructor function to using assignment lists in all classes.
     </note>
-    <note priority="veryhigh" time="1282490094">
+    <note priority="veryhigh" time="1282490094" done="1282679668">
         Highlight the major problems that occured with the titlescreen test.
     </note>
     <note priority="low" time="1282449268">

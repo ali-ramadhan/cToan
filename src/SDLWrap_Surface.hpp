@@ -69,10 +69,10 @@ class Surface
          * It returns a bool to signal success or failure. Probably not gonna use it for anything but debug purposes
          * though...
          */
-        bool Blit(Surface & const Destination);
+        bool Blit(Surface &Destination);
 
         /* Blits the Surface onto Destination at co-ordinates (X,Y). */
-        bool Blit(Surface & const Destination, int DestXOffset, int DestYOffset);
+        bool Blit(Surface &Destination, int DestXOffset, int DestYOffset);
 
     protected:
         SDL_Surface *me; // Declared protected so it can be inherited by the Display and FontSurface classes.
@@ -84,7 +84,7 @@ class Surface
          * lost, in which case, the surface must be reloaded/reblitted which requires extra work and possible quite a
          * bit of extra code, so I decided to keep everything here.
          */
-        bool RealBlit(Surface & const Destination, SDL_Rect *SourceRect, SDL_Rect *DestRect); // Used internally.
+        bool RealBlit(Surface &Destination, SDL_Rect *SourceRect, SDL_Rect *DestRect); // Used internally.
 };
 
 };

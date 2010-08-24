@@ -3,6 +3,9 @@
  * Just a header file to keep all the enums. Keeping everything in their own class and prefixing them with the class
  * name and the scope operator is a bit stupid. Everything is in the SDLWrap namespace so I shouldn't worry about name
  * clashes either.
+ *
+ * Changelog:
+ * 24/08/2010: - Made the keysym enum into it's type; Key so that we can use Key types instead of SDLKey.
  */
 
 #ifndef _SDLWRAP_ENUMS_H_
@@ -75,7 +78,7 @@ enum {
  *
  * Uppercase letters are skipped as you can get them by checking for Caps lock or the KEYMOD for any of the two SHIFT's.
  */
-enum {
+enum Key {
     /* ASCII mapped keys */
     KEY_BACKSPACE = SDLK_BACKSPACE,
     KEY_RETURN    = SDLK_RETURN,

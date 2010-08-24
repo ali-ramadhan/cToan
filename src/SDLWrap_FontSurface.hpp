@@ -2,6 +2,10 @@
  *
  * Changelog:
  * 24/08/2010: - Added support for rendering text as blended.
+ *             - Swithced from using pointers to Color objects to references. No need to construct a tmp SDL_Color in
+ *               the render functions anymore, and still lets me used scoped_ptr's in the code.
+ *             - Changed order of the constructor initializer (well, the one that people read) since it seems that the
+ *               shared_ptr gets initialized first always, and changed the order to make it obvious to readers (me xD).
  *
  * 23/08/2010: - Stopped using a typedef for shared_ptr to Font, I'll leave header fully open.
  *             - Removed the useless empty destructor.
@@ -42,14 +46,8 @@ class FontSurface : public Surface
          *
          * It also takes a boost shared_ptr to a Font object, which means it has to already exist.
          */
-        FontSurface(std::string Text, boost::shared_ptr<Font> TextFont, Color *ColorOfText) :
-            SurfaceText(Text), meFont(TextFont), TextColor(ColorOfText);
-
-        /* DANGEROUS(?) NOTE:
-         * It seems that internally I need SDL_Color structs, but I need pointers to Color objects, so I'm creating
-         * SDL_Colors in the render functions, using them and then letting them go out of scope for now. Seems like
-         * such a dirty trick though :P
-         */
+        FontSurface(const std::string Text, boost::shared_ptr<Font> TextFont, const Color &ColorOfText) :
+            meFont(TextFont), SurfaceText(Text), ForegroundColor(ColorOfText) {}
 
         /* Renders a surface with text on it. The SurfaceText becomes the text, rendered in the font pointed to by
          * meFont and you can specify a color to render it in.
@@ -81,7 +79,7 @@ class FontSurface : public Surface
     private:
         boost::shared_ptr<Font> meFont;
         std::string SurfaceText;
-        Color *ForegroundColor;
+        Color ForegroundColor;
 };
 
 };

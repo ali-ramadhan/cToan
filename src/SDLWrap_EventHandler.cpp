@@ -21,7 +21,7 @@ EventHandler::HandleEvent()
 {
     switch (this->Event.type) {
         case SDL_KEYDOWN:
-            OnKeyDown(Event.key.keysym.sym);
+            OnKeyDown((Key) Event.key.keysym.sym);
             break;
 
         case SDL_QUIT:

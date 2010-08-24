@@ -4,14 +4,18 @@
  * 24/08/2010: - Added internal functions for each, logging to cerr and to an ofstream.
  *             - Added support for logging to an ofstream.
  *             - Added a verbosity enum to support different levels of logging.
+ *             - Changed LogFile's name to "log.txt" to show that it's not only errors :P
+ *             - Removed the internal functions for outputting to clog/ofstream, it's not worth copying the std::string
+ *               twice if it's 3 lines of code for both <_<
  */
 
 #ifndef _LOGGER_H_
 #define _LOGGER_H_
 
 #include <iostream>
+#include <fstream>
 
-#include "SDL/SDL.h" // For SDL_GetError()
+#include <SDL/SDL.h> // For SDL_GetError()
 
 class Logger
 {
@@ -43,13 +47,7 @@ class Logger
         static void Log(LogType lType, std::string Info);
 
     private:
-        /* Used internally to log to cerr */
-        void OutputToStderr(std::string Info);
-
-        /* Used internally to log to a file, in case the program is not being run from the terminal. */
-        void OutputToFile(std::string Info);
-
-        std::ofstream LogFile; // TODO?: Let the user pick the logfile's name.
+        static std::ofstream LogFile; // TODO?: Let the user pick the logfile's name.
 };
 
 #endif

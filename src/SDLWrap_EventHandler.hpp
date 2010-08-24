@@ -42,7 +42,7 @@ class EventHandler
          * overridden, which is not what I'm looking for...
          */
         virtual void OnQuit() {};
-        virtual void OnKeyDown(SDLKey sym) {};
+        virtual void OnKeyDown(Key sym) {};
 
     protected:
         SDL_Event Event;
