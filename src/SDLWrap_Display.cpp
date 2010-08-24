@@ -9,7 +9,7 @@ try {
 }
 catch(SurfaceCreationError)
 {
-   ErrorHandler::OutputError(ErrorHandler::FATAL_CONSTRUCTOR_ERROR, "Display::Display(int, int, int, Uint32) constructor threw a SurfaceCreationError!\n");
+   Logger::Log(Logger::FATAL_CONSTRUCTOR_ERROR, "Display::Display(int, int, int, Uint32) constructor threw a SurfaceCreationError!\n");
 }
 
 bool

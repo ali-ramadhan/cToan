@@ -17,7 +17,7 @@
 
 #include <SDL/SDL.h>
 
-#include "ErrorHandler.hpp"
+#include "Logger.hpp"
 
 namespace SDLWrap {
 

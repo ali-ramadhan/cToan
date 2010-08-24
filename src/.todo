@@ -48,19 +48,22 @@
             Was only the Surface class, but done!
         </comment>
     </note>
-    <note priority="medium" time="1282440250" done="1282560921">
-        Switch from doing assignment in constructor function to using assignment lists in all classes.
-    </note>
-    <note priority="veryhigh" time="1282490094">
-        Highlight the major problems that occured with the titlescreen test.
-    </note>
     <note priority="high" time="1282621463" done="1282621802">
         Internally, the FontSurface class requires SDL_Color structs but you need pointers to Color objects. Find a midway solution.
         <comment>
             Very dirty solution but it'll do for now =/
         </comment>
     </note>
-    <note priority="medium" time="1282449268">
+    <note priority="high" time="1282669611" done="1282669616">
+        Rewrite the ErrorHandler class to a more abstract/generic Logger class.
+    </note>
+    <note priority="medium" time="1282440250" done="1282560921">
+        Switch from doing assignment in constructor function to using assignment lists in all classes.
+    </note>
+    <note priority="veryhigh" time="1282490094">
+        Highlight the major problems that occured with the titlescreen test.
+    </note>
+    <note priority="low" time="1282449268">
         Add SDL_image support to the Surface class.
         <comment>
             Maybe later, near the production stage?

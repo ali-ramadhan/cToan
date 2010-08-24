@@ -15,7 +15,7 @@ try {
 }
 catch (SurfaceCreationError)
 {
-    ErrorHandler::OutputError(ErrorHandler::FATAL_CONSTRUCTOR_ERROR, "Surface::Surface(char*) constructor threw a SurfaceCreationError.\n");
+    Logger::Log(Logger::FATAL_CONSTRUCTOR_ERROR, "Surface::Surface(char*) constructor threw a SurfaceCreationError.\n");
 }
 
 Surface::~Surface()

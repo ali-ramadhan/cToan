@@ -9,7 +9,7 @@ try {
 }
 catch (InitError)
 {
-    ErrorHandler::OutputError(ErrorHandler::FATAL_CONSTRUCTOR_ERROR, "SDLEngine::SDLEngine(Uint32) constructor threw an InitError.\n");
+    Logger::Log(Logger::FATAL_CONSTRUCTOR_ERROR, "SDLEngine::SDLEngine(Uint32) constructor threw an InitError.\n");
 }
 
 SDLEngine::~SDLEngine()

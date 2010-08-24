@@ -24,7 +24,7 @@ catch (TTFError)
     } else {
         Error += "The TTF core was not initialized.\n";
     }
-    ErrorHandler::OutputError(ErrorHandler::FATAL_CONSTRUCTOR_ERROR, Error);
+    Logger::Log(Logger::FATAL_CONSTRUCTOR_ERROR, Error);
 }
 
 Font::~Font()
@@ -40,7 +40,7 @@ Font::Shutdown()
         TTF_Quit();
     } else {
         // I dunno, do something useful <_<
-        // Maybe leave it to the ErrorHandler to report the error somehow?
+        // Maybe leave it to the Logger to report the error somehow?
     }
 }
 

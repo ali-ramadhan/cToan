@@ -25,7 +25,7 @@
 #include <SDL/SDL.h>
 
 #include "SDLWrap_Enums.hpp"
-#include "ErrorHandler.hpp"
+#include "Logger.hpp"
 
 namespace SDLWrap {
 
