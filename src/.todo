@@ -9,6 +9,9 @@
             Well, it was only the Surface class but I'll keep it in mind!
         </comment>
     </note>
+    <note priority="veryhigh" time="1282490094" done="1282679668">
+        Highlight the major problems that occured with the titlescreen test.
+    </note>
     <note priority="high" time="1282456521" done="1282619882">
         Should I do some enum switching and abstraction on EventHandler for the events?
         <comment>
@@ -60,8 +63,20 @@
     <note priority="medium" time="1282440250" done="1282560921">
         Switch from doing assignment in constructor function to using assignment lists in all classes.
     </note>
-    <note priority="veryhigh" time="1282490094" done="1282679668">
-        Highlight the major problems that occured with the titlescreen test.
+    <note priority="high" time="1282856047">
+        Redesign the LogType enum, what would something like SDL_BlitSurface() return -2 mean?
+    </note>
+    <note priority="medium" time="1282692149">
+        Add more logging to all the classes, you've only done the SDLEngine class till now.
+    </note>
+    <note priority="medium" time="1282692209">
+        Decide how to implement verbosity levels for Logger. Should I let the Log() function handle it or do it before actualling calling Log()?
+    </note>
+    <note priority="medium" time="1282746302">
+        How about a GameState class that all game states derive from as classes and overload operator()?
+    </note>
+    <note priority="medium" time="1282909245">
+        Add timestamps to the Logger class.
     </note>
     <note priority="low" time="1282449268">
         Add SDL_image support to the Surface class.
@@ -71,5 +86,11 @@
     </note>
     <note priority="low" time="1282619277">
         Add stuff from the SDLMod enum (SDL_keysym.h) into my enum header?
+    </note>
+    <note priority="low" time="1282692089">
+        Switch to using SDL_DisplayFormatAlpha() in the Surface constructor?
+    </note>
+    <note priority="low" time="1282692591">
+        Handle the case of calling Shutdown() in the Font class while still having Fonts up. Maybe a non fatal error.
     </note>
 </todo>

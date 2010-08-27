@@ -24,7 +24,7 @@ catch (TTFError)
     } else {
         Error += "The TTF core was not initialized.\n";
     }
-    Logger::Log(Logger::FATAL_CONSTRUCTOR_ERROR, Error);
+    Logger::Log(Logger::CONSTRUCTOR, Logger::FATAL, Error);
 }
 
 Font::~Font()

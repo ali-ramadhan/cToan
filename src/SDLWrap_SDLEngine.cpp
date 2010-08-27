@@ -9,7 +9,7 @@ try {
 }
 catch (InitError)
 {
-    Logger::Log(Logger::FATAL_CONSTRUCTOR_ERROR, "SDLEngine::SDLEngine(Uint32) constructor threw an InitError.\n");
+    Logger::Log(Logger::CONSTRUCTOR, Logger::FATAL, "SDLEngine::SDLEngine(Uint32) constructor threw an InitError.\n");
 }
 
 SDLEngine::~SDLEngine()

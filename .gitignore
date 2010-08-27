@@ -5,3 +5,6 @@ CREDITS
 # be non-free stuff or NSFW etc.
 *.bmp
 *.ttf
+
+# Log files leftover from running the tests.
+stderr.txt

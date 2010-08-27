@@ -82,6 +82,6 @@ class FontSurface : public Surface
         Color ForegroundColor;
 };
 
-};
+}
 
 #endif

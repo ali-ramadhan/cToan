@@ -29,7 +29,7 @@ class Surface
 {
     public:
         /* When caught it creates an error std::string which it sends to the Error Handler with the
-         * FATAL_CONSTRUCTOR_ERROR flag, because the lack of a BMP file means the SDL_Surface pointer is set to NULL,
+         * CONSTRUCTOR + FATAL flags, because the lack of a BMP file means the SDL_Surface pointer is set to NULL,
          * and you can't blit a NULL surface can you :P ? Also, the game will be using any images it loads, there is
          * no substitute for a BMP file. If it can't be used/found, then what's the point, you might not see something
          * important/useful. The game needs them.
@@ -49,8 +49,6 @@ class Surface
          * the class' private SDL_Surface with a call to SDL_DisplayFormat to ensure the surface has the same format as
          * the display surface. This way blitting is done as fast as possible since SDL does not have to convert the
          * surface every time it wants to blit it.
-         *
-         * BmpFilePath is the file path to a bitmap image file.
          *
          * TODO: The function currently uses SDL_DisplayFormat() which works on 24-bit images and since pretty much all
          *       graphics cards these days deal with 32-bit (alpha channel support), using SDL_DisplayFormatAlpha()

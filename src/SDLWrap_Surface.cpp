@@ -15,7 +15,7 @@ try {
 }
 catch (SurfaceCreationError)
 {
-    Logger::Log(Logger::FATAL_CONSTRUCTOR_ERROR, "Surface::Surface(char*) constructor threw a SurfaceCreationError.\n");
+    Logger::Log(Logger::CONSTRUCTOR, Logger::FATAL, "Surface::Surface(char*) constructor threw a SurfaceCreationError.\n");
 }
 
 Surface::~Surface()
@@ -46,7 +46,12 @@ Surface::RealBlit(Surface &Destination, SDL_Rect *SourceRect, SDL_Rect *DestRect
          * very good post by rip-off on GameDev.
          * http://sdl.beuc.net/sdl.wiki/SDL_BlitSurface
          * http://www.gamedev.net/community/forums/topic.asp?topic_id=518486&whichpage=1&#3368336
+         *
+         * On second though, maybe I won't have to. It seems that most backends don't have support for hwardware
+         * surfaces anymore, and it would be better to stick to software surfaces. So I'll just log an error and ignore
+         * it for now.
          */
+        Logger::Log(Logger::RUNTIME, Logger::ERROR, "Video memory was lost. SDL_BlitSurface() returned -2. Reloading and reblitting.\n");
         continue;
     }
 
