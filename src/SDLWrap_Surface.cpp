@@ -51,7 +51,7 @@ Surface::RealBlit(Surface &Destination, SDL_Rect *SourceRect, SDL_Rect *DestRect
          * surfaces anymore, and it would be better to stick to software surfaces. So I'll just log an error and ignore
          * it for now.
          */
-        Logger::Log(Logger::RUNTIME, Logger::ERROR, "Video memory was lost. SDL_BlitSurface() returned -2. Reloading and reblitting.\n");
+        Logger::Log(Logger::RUNTIME, Logger::ERROR, "Video memory was lost. SDL_BlitSurface() returned -2. Reloading and reblitting. (not really for now ^^'\n");
         continue;
     }
 

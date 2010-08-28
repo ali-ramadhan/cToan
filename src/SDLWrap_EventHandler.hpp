@@ -41,8 +41,9 @@ class EventHandler
          * what I'm doing here with my On*() functions, then they may be overridden, but pure virtual functions MUST be
          * overridden, which is not what I'm looking for...
          */
-        virtual void OnQuit() {};
-        virtual void OnKeyDown(Key sym) {};
+        virtual void OnQuit() {}
+        virtual void OnKeyDown(Key sym) {}
+        virtual void OnKeyUp(Key sym) {}
 
     protected:
         SDL_Event Event;

@@ -29,6 +29,7 @@ class Logger
         enum LogType {
             CONSTRUCTOR = 0, // For anything that happens in a constructor, it's serious business!
             RUNTIME          // They're all technically runtime (:P) but this one is for any misc. runtime reporting.
+                             // Probably should come up with a better name...
         };
 
         /* This enum holds the verbosity level of the logger. I might wanna keep it completely silent and not output a

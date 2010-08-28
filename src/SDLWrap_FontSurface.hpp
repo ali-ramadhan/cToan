@@ -76,6 +76,12 @@ class FontSurface : public Surface
          */
         void RenderTextBlended();
 
+        /* This function simply changes the color of the FontSurface. Well not really, it copies the provided NewFColor
+         * to the instance's ForegroundColor. The FontSurface will have to be re-rendered for the changes to take place
+         * though. Later it might not as it will record the rendered state but for now, you need to re-render.
+         */
+        void SetForegroundColor(Color &NewFColor);
+
     private:
         boost::shared_ptr<Font> meFont;
         std::string SurfaceText;

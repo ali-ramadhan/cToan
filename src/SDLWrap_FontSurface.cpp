@@ -14,4 +14,10 @@ FontSurface::RenderTextBlended()
     this->me = TTF_RenderText_Blended(meFont->me, SurfaceText.c_str(), ForegroundColor.me);
 }
 
+void
+FontSurface::SetForegroundColor(Color &NewFColor)
+{
+    this->ForegroundColor = NewFColor;
+}
+
 }

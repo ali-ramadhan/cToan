@@ -24,6 +24,10 @@ EventHandler::HandleEvent()
             OnKeyDown((Key) Event.key.keysym.sym);
             break;
 
+        case SDL_KEYUP:
+            OnKeyUp((key) Event.key.keysym.sym);
+            break;
+
         case SDL_QUIT:
             OnQuit();
             break;
